@@ -13,7 +13,6 @@
         function deleteUser(id) {
             if (confirm("确定删除吗？")) {
                 location.href = "${pageContext.request.contextPath}/user/del/" + id;
-                location.href = "${pageContext.request.contextPath}/user/del/" + ${pageInfo.pageNum};
             }
         }
         window.onload = function () {
