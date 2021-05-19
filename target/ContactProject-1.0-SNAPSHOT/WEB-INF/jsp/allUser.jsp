@@ -12,10 +12,10 @@
     <script>
         function deleteUser(id) {
             if (confirm("确定删除吗？")) {
-                location.href = "${pageContext.request.contextPath}/deleteServlet?id=" + id;
+                location.href = "${pageContext.request.contextPath}/user/del/" + id;
+                location.href = "${pageContext.request.contextPath}/user/del/" + ${pageInfo.pageNum};
             }
         }
-
         window.onload = function () {
             document.getElementById("deleteSelected").onclick = function () {
                 if (confirm("确定删除选中条目吗？")) {
@@ -66,9 +66,9 @@
 
     <div style="float: right;margin: 5px;">
         <a class="btn btn-primary" href="${pageContext.request.contextPath}/user/toAddUser">添加联系人</a>
-        <a class="btn btn-primary" href="${pageContext.request.contextPath}/user/del/${user.getId()}">删除联系人</a>
+        <a class="btn btn-primary" href="javascript:void(0);" id="deleteSelected">删除联系人</a>
     </div>
-    <form id="formSelected" action="" method="post">
+    <form id="formSelected" action="${pageContext.request.contextPath}/user/delSelected" method="post">
         <table border="1" class="table table-bordered table-hover">
             <tr class="success">
                 <th><input class="checkbox" type="checkbox" id="cb"></th>
@@ -94,7 +94,7 @@
                     <td><a class="btn btn-default btn-sm"
                            href="${pageContext.request.contextPath}/user/toUpdateUser?id=${user.getId()}">修改</a>&nbsp;
                         <a class="btn btn-default btn-sm"
-                           href="${pageContext.request.contextPath}/user/del/${user.getId()}">删除</a>
+                           href="javascript:deleteUser(${user.getId()});">删除</a>
                     </td>
                 </tr>
             </c:forEach>

@@ -116,4 +116,11 @@ public class UserController {
         userService.reAlter();//解决主键自增长不连续问题
         return "redirect:/user/allUser";
     }
+    @RequestMapping("/delSelected")
+    public String delSelected(int[] uid){
+        for (int i : uid) {
+            userService.delete(i);
+        }
+        return "redirect:/user/allUser";
+    }
 }
