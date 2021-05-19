@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scala=1"/>
     <title>修改用户</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.css" rel="script">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" rel="script">
 </head>
 <body>
 <div class="container">
@@ -32,7 +32,7 @@
         </div>
         <div class="form-group">
             <label for="age">年龄</label>
-            <input type="number" class="form-control" id="age" value="${user.getAge()}" name="age">
+            <input type="number" class="form-control" id="age" value="${user.getAge()}" name="age" required>
         </div>
         <div class="form-group">
             <label for="address">地区</label>
@@ -1129,11 +1129,11 @@
         </div>
         <div class="form-group">
             <label for="qq">QQ</label>
-            <input class="form-control" type="number" name="qq" value="${user.getQq()}" id="qq"/>
+            <input class="form-control" type="number" name="qq" value="${user.getQq()}" id="qq" required/>
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" name="email" value="${user.getEmail()}" id="email"/>
+            <input type="email" class="form-control" name="email" value="${user.getEmail()}" id="email" required/>
         </div>
         <div class="form-group" style="...">
             <input class="btn btn-primary" type="submit" value="提交"/>

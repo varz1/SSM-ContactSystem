@@ -7,27 +7,15 @@
     <meta name="viewport" content="width=device-width,initial-scala=1"/>
     <title>添加用户</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.css" rel="script">
-    <script>
-        function validateForm() {
-            var x=document.forms["myForm"].value;
-            if (x == null || x == "") {
-                alert("信息不能为空");
-                return false;
-            }else {
-                return true;
-            }
-        }
-
-    </script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" rel="script">
 </head>
 <body>
 <div class="container">
     <center><h3>添加联系人</h3></center>
-    <form name="myForm"   action="${pageContext.request.contextPath}/user/addUser" method="post">
+    <form name="addform" action="${pageContext.request.contextPath}/user/addUser" method="post">
         <div class="form-group">
             <label for="name">姓名</label>
-            <input type="text" class="form-control" id="name" name="name">
+            <input type="text" class="form-control" id="name" name="name" required>
         </div>
         <div class="form-group">
             <label>性别</label>
@@ -36,7 +24,7 @@
         </div>
         <div class="form-group">
             <label for="age">年龄</label>
-            <input type="number" class="form-control" id="age" name="age">
+            <input type="number" class="form-control" id="age" name="age" required>
         </div>
         <div class="form-group">
             <label for="address">地区</label>
@@ -77,17 +65,17 @@
         </div>
         <div class="form-group">
             <label for="qq">QQ</label>
-            <input class="form-control" type="number" name="qq" id="qq"/>
+            <input class="form-control" name="qq" id="qq" required/>
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input class="form-control" type="email" name="email" id="email"/>
+            <input class="form-control" type="email" name="email" id="email" required/>
         </div>
         <div class="form-group" style="...">
             <input class="btn btn-primary" type="submit" value="提交"/>
             <input class="btn btn-primary" type="reset" value="重置"/>
             <input class="btn btn-primary" type="button" value="取消"/>
-<%--            <input onclick="${pageContext.request.contextPath}/list.jsp" class="btn btn-primary" type="button" value="取消"/>--%>
+            <%--            <input onclick="${pageContext.request.contextPath}/list.jsp" class="btn btn-primary" type="button" value="取消"/>--%>
         </div>
     </form>
 </div>
