@@ -1,2 +1,5 @@
 # SSM-ContactSystem
-一个ssm整合的Java Web项目
+
+## 初始化环境
+
+运行init.sql
