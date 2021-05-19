@@ -6,8 +6,9 @@
 
 运行[init.sql](https://github.com/varz1/SSM-ContactSystem/blob/main/init.sql)
 
-## ToDo List
+## TODO
 
-- [x] index跳转登录
 - [x] 模糊查询
-- [ ] 表单验证
+- [x] 表单验证
+- [x] 多选框删除
+- [ ] index跳转登录
