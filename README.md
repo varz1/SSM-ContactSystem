@@ -4,12 +4,10 @@
 
 ## 初始化环境
 
-- 运行[init.sql](https://github.com/varz1/SSM-ContactSystem/blob/main/init.sql)
-- 部署运行
+运行[init.sql](https://github.com/varz1/SSM-ContactSystem/blob/main/init.sql)
 
 ## ToDo List
 
+- [x] index跳转登录
 - [x] 模糊查询
-- [x] 表单验证
-- [ ] Ajax检查用户名是否重复
-- [ ] index跳转登录
+- [ ] 表单验证

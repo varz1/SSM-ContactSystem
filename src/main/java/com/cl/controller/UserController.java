@@ -12,10 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -88,9 +85,21 @@ public class UserController {
         return "allUser";
     }
 
+
     @RequestMapping("/toAddUser")
     public String toAddPage() {
         return "addUser";
+    }
+
+    @ResponseBody
+    @RequestMapping("/checkUser")
+    public String checkUser(String name){
+        User user = userService.checkName(name);
+        //System.out.println(user);
+        if (user != null) {
+            return "1";  //表示admin这个用户名不能使用，已经存在
+        }
+        return "0";  //表示此时的用户名不存在，可以使用
     }
 
     @RequestMapping("/addUser")
@@ -99,6 +108,7 @@ public class UserController {
         userService.insert(users);
         return "redirect:/user/allUser?pn=" + size;
     }
+
 
     @RequestMapping("/toUpdateUser")
     public String toUpdateUser(int id, Model model) {
@@ -124,9 +134,10 @@ public class UserController {
 
     @RequestMapping("/delSelected")
     public String delSelected(int[] uid) {
+        int num = pageStatus.getPageNum();
         for (int i : uid) {
             userService.delete(i);
         }
-        return "redirect:/user/allUser";
+        return "redirect:/user/allUser?pn=" + num;
     }
 }

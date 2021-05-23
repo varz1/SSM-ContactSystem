@@ -18,6 +18,6 @@ public interface UserService {
     void update(User user);
 
     void reAlter();
-
+    public User checkName(String name);
     public List<User>  queryUser(User user);
 }

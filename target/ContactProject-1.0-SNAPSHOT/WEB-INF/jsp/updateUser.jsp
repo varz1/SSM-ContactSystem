@@ -1138,7 +1138,7 @@
         <div class="form-group" style="...">
             <input class="btn btn-primary" type="submit" value="提交"/>
             <input class="btn btn-primary" type="reset"  value="重置"/>
-            <input class="btn btn-primary" type="button" value="取消"/>
+            <input class="btn btn-primary" type="button" value="取消" onclick="javascript:window.history.back();"/>
         </div>
     </form>
 </div>

@@ -23,6 +23,7 @@
         <servlet-name>CaptchaServlet</servlet-name>
         <servlet-class>com.wf.captcha.servlet.CaptchaServlet</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>CaptchaServlet</servlet-name>
         <url-pattern>/captcha</url-pattern>

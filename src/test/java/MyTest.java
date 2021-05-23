@@ -16,11 +16,6 @@ public class MyTest {
 //        Manager manager = new Manager("root","123");
 //        System.out.println(service.findManager(manager));
         UserServiceImpl service = context.getBean("UserServiceImpl", UserServiceImpl.class);
-        User user = new User();
-        user.setName("小");
-        List<User> userList = service.queryUser(user);
-        for (User user1 : userList) {
-            System.out.println(user1);
-        }
+        System.out.println(service.checkName("小蓝"));
     }
-}
+    }

@@ -11,10 +11,12 @@
    https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!-- 配置SpringMVC -->
-    <!-- 1.开启SpringMVC注解驱动 -->
-    <mvc:annotation-driven />
+    <!-- 4.扫描web相关的bean -->
+    <context:component-scan base-package="com.cl.controller"/>
     <!-- 2.静态资源默认servlet配置-->
     <mvc:default-servlet-handler/>
+    <!-- 1.开启SpringMVC注解驱动 -->
+    <mvc:annotation-driven />
 
     <!-- 3.配置jsp 显示ViewResolver视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -23,6 +25,4 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
-    <!-- 4.扫描web相关的bean -->
-    <context:component-scan base-package="com.cl.controller"/>
 </beans>

@@ -45,6 +45,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User checkName(String name) {
+        return userMapper.checkName(name);
+    }
+
+    @Override
     public List<User>  queryUser(User user) {
         return userMapper.queryUser(user);
     }

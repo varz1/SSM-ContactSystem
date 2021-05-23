@@ -43,7 +43,7 @@
 </head>
 <body>
 <div class="container">
-    <h3 style="...">用户信息列表</h3>
+    <h3 style="...">联系人列表</h3>
 
     <div style="float: left;">
         <form class="form-inline" action="${pageContext.request.contextPath}/user/queryUser" method="post">

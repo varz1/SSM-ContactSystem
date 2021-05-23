@@ -13,7 +13,7 @@ public interface UserMapper {
     User findById(@Param("id")int id);
 
     void update(User user);
-
+    public User checkName(String name);
     public List<User> queryUser(User user);
     void reAlter();
 //

@@ -8,6 +8,39 @@
     <title>添加用户</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" rel="script">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<%--    <script src="static/js/jquery-3.6.0.min.js" rel="script"></script>--%>
+    <script type="text/javascript">
+        function checkName(obj) {
+            var name = obj.value;
+            console.log(name)
+            $.ajax({
+                type: 'post',
+                url: '${pageContext.request.contextPath}/user/checkUser',
+                data: {
+                    'name': name,
+                },
+                dataType: 'text',
+                success: function (data) {
+                    if (data == 1) {
+                        //存在
+                        $('#ret-msg').css("color","#b73333");
+                        $('#ret-msg').html("用户已存在❌");
+                    } else {
+                        //不存在
+                        $('#ret-msg').css("color","rgba(0,239,11,0.87)");
+                        $('#ret-msg').html("用户名可以使用✔️");
+                    }
+// 				window.console.log('成功回调函数');
+                },
+                error: function () {
+                    window.console.log('失败回调函数');
+                }
+
+            })
+
+        }
+    </script>
 </head>
 <body>
 <div class="container">
@@ -15,7 +48,8 @@
     <form name="addform" action="${pageContext.request.contextPath}/user/addUser" method="post">
         <div class="form-group">
             <label for="name">姓名</label>
-            <input type="text" class="form-control" id="name" name="name" required>
+            <input type="text" class="form-control" id="name" name="name" onblur="checkName(this);" required>
+            <span id='ret-msg'></span>
         </div>
         <div class="form-group">
             <label>性别</label>
@@ -74,7 +108,7 @@
         <div class="form-group" style="...">
             <input class="btn btn-primary" type="submit" value="提交"/>
             <input class="btn btn-primary" type="reset" value="重置"/>
-            <input class="btn btn-primary" type="button" value="取消"/>
+            <input class="btn btn-primary" type="button" value="取消" onclick="javascript:window.history.back();"/>
             <%--            <input onclick="${pageContext.request.contextPath}/list.jsp" class="btn btn-primary" type="button" value="取消"/>--%>
         </div>
     </form>
